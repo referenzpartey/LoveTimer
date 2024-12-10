@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOVE YOU TIMER</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>LOVE YOU TIMER</h1>
+    <div id="input-container">
+        <label for="urgency">Wie dringend benötigst du ein wenig Liebe?</label>
+        <select id="urgency">
+            <option value="very-fast">Sehr schnell</option>
+            <option value="fast">Schnell</option>
+            <option value="few-minutes">In ein paar Minuten</option>
+            <option value="not-now">Hat noch Zeit</option>
+            <option value="much-later">Viel später</option>
+            <option value="no-love">Ich brauch grad keine Liebe</option>
+            <option value="pari-mode">PaRi - NOTFALLMODUS</option>
+        </select>
+        <button onclick="startBasedOnUrgency()">Start</button>
+    </div>
+    <div id="hearts-container"></div>
+    <div id="timer">--:--</div>
+    <div id="interval-message"></div>
+    <div id="message">
+        <div id="love-message"></div>
+        <div class="message-hearts" id="message-hearts"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
