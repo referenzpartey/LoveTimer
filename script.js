@@ -8,31 +8,56 @@ let isMessageVisible = false;
 let timerInterval = null;
 
 const messages = [
-    "Ich liebe dich bis zum Mond und zurück! 🌙❤️",
-    "Du bist mein größter Schatz! 💎",
-    "Ohne dich wäre mein Leben unvollständig. 🧩",
-    "Du bist mein Ein und Alles! 🌹",
-    "Jeden Tag mit dir ist ein Geschenk. 🎁❤️",
-    "Mein Herz schlägt nur für dich! 💓",
-    "Du machst mein Leben unendlich schöner. 🌸❤️",
-    "Jeder Moment mit dir ist ein kleines Wunder. 🌟",
-    "Ich liebe dich mehr, als Worte ausdrücken können. 📝❤️",
-    "Du bist mein Kompass und mein Zuhause. 🧭🏠❤️",
-    "Du bist die beste Entscheidung meines Lebens. 🌹❤️"
+			"Ich liebe dich bis zum Mond und zurück! 🌙❤️",
+            "Du bist mein größter Schatz! 💎",
+            "Ohne dich wäre mein Leben unvollständig. 🧩",
+            "Du bist mein Ein und Alles! 🌹",
+            "Jeden Tag mit dir ist ein Geschenk. 🎁❤️",
+			"❤️❤️❤️...PaRi.❤️.PaRi.❤️.PaRi.❤️.PaRi.❤️.PaRi.❤️.PaRi...❤️❤️❤️",
+            "Mein Herz schlägt nur für dich! 💓",
+            "Du machst mein Leben unendlich schöner. 🌸❤️",
+            "Jeder Moment mit dir ist ein kleines Wunder. 🌟",
+            "Ich liebe dich mehr, als Worte ausdrücken können. 📝❤️",
+            "Du bist mein Kompass und mein Zuhause. 🧭🏠❤️",
+            "Du bist die beste Entscheidung meines Lebens. 🌹❤️"
+			"❤️❤️❤️...PaRi.❤️.PaRi.❤️.PaRi.❤️.PaRi.❤️.PaRi.❤️.PaRi...❤️❤️❤️",
+        ];
 ];
 
 const intervalMessages = [
-    "Lade Liebe...",
-    "Kopiere Schmetterlinge in den Bauch...",
-    "Lösche schlechte Erinnerungen...",
-    "Lade Freude in dein Herz...",
-    "Kopiere Lächeln auf dein Gesicht...",
-    "Lösche Sorgen aus deinem Kopf...",
-    "Lade Glück in dein Leben...",
-    "Kopiere Sonnenstrahlen in deine Seele...",
-    "Erstelle Schulter zum Anlehnen...",
-    "Erstelle eine warme Umarmung...",
-    "Kopiere Harmonie in deinen Alltag..."
+			"Lade Liebe...",
+            "Kopiere Schmetterlinge in den Bauch...",
+            "Lösche schlechte Erinnerungen...",
+            "Lade Freude in dein Herz...",
+            "Kopiere Lächeln auf dein Gesicht...",
+            "...PaRi...PaRi...PaRi...PaRi...PaRi...PaRi...",
+            "Lade Glück in dein Leben...",
+            "Kopiere Sonnenstrahlen in deine Seele...",
+            "Erstelle Schulter zum Anlehnen...",
+            "Erstelle eine warme Umarmung...",
+            "...PaRi...PaRi...PaRi...PaRi...PaRi...PaRi...",
+            "Kopiere Harmonie in deinen Alltag...",
+            "...PaRi...PaRi...PaRi...PaRi...PaRi...PaRi...",
+            "...PaRi...PaRi...PaRi...PaRi...PaRi...PaRi...",
+            "Kopiere Freude in deinen Alltag......",
+            "Lösche Zweifel aus deinem Geist......",
+            "Erstelle einen Ort der Geborgenheit......",
+            "Lade Mut in deine Entscheidungen......",
+            "Kopiere Wärme in deine Worte......",
+            "...PaRi...PaRi...PaRi...PaRi...PaRi...PaRi...",
+            "Erstelle einen Raum der Ruhe......",
+            "Lade Hoffnung in deine Träume......",
+            "...PaRi...PaRi...PaRi...PaRi...PaRi...PaRi...",
+            "...PaRi...PaRi...PaRi...PaRi...PaRi...PaRi...",
+            "...PaRi...PaRi...PaRi...PaRi...PaRi...PaRi...",
+            "Lade Harmonie in deine Seele......",
+            "Kopiere Lächeln auf dein Gesicht......",
+            "Lösche Sorgen aus deinem Kopf......",
+            "Erstelle eine warme Umarmung......",
+            "Lade Glück in dein Leben......",
+            "Kopiere Sonnenstrahlen in deine Seele......",
+            "Lösche Ängste aus deinem Herzen......",
+            "Erstelle einen sicheren Hafen......"
 ];
 
 const urgencyMapping = {
@@ -42,7 +67,7 @@ const urgencyMapping = {
     "not-now": { countdownRange: [900, 3600], messageTime: 180 },
     "much-later": { countdownRange: [3600, 10800], messageTime: 300 },
     "no-love": { countdownRange: [3600, 3600], messageTime: 0 },
-    "pari-mode": { countdownRange: [2, 2], messageTime: 10 }
+    "pari-mode": { countdownRange: [1, 5], messageTime: 5 }
 };
 
 function shuffleArray(array) {
@@ -75,7 +100,7 @@ function createRandomHearts() {
 function createMessageHearts() {
     const messageHeartsContainer = document.getElementById('message-hearts');
     messageHeartsContainer.innerHTML = '';
-    for (let i = 0; i < messageCountdown; i++) {
+    for (let i = 0; i < (messageCountdown/2)+1; i++) {
         const heart = document.createElement('span');
         heart.className = 'message-heart';
         heart.textContent = '❤';
@@ -201,7 +226,7 @@ function getRandomPastelColor() {
 
 function showBlackScreen() {
     document.body.style.background = "black";
-    document.body.innerHTML = '<h1 style="color: white;">Die Seite lädt neu in:</h1><div id="black-timer" style="color: white; font-size: 3rem;">60:00</div>';
+    document.body.innerHTML = '<h1 style="color: white;">Nächste Chance auf Liebe in:</h1><div id="black-timer" style="color: white; font-size: 3rem;">60:00</div>';
     let blackCountdown = 3600;
     const interval = setInterval(() => {
         blackCountdown--;
